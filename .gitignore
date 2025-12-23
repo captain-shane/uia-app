@@ -29,3 +29,4 @@ legacy/
 test_*.py
 manual_diagnose.py
 restart_server.bat
+cleanup_docker.bat
