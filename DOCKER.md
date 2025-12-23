@@ -86,10 +86,10 @@ volumes:
 
 ```bash
 # Build the image
-docker build -t uia-app:1.0.0 .
+docker build -t uia-app:latest .
 
 # Run it
-docker run -p 8000:8000 -v uia-certs:/app/certs uia-app:1.0.0
+docker run -p 8000:8000 -v uia-certs:/app/certs uia-app:latest
 ```
 
 ## UIA Agent Configuration
