@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  uia-app:
+    build: .
+    image: uia-app:1.0.0
+    container_name: uia-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - uia-certs:/app/certs
+    environment:
+      - CERT_DIR=/app/certs
+    restart: unless-stopped
+
+volumes:
+  uia-certs:
+    driver: local
