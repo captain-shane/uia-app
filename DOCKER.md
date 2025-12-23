@@ -1,6 +1,6 @@
 # UIA-App Docker Guide
 
-## Version 1.0.0
+## Version 1.0.1
 
 > ⚠️ **DISCLAIMER**: This is NOT an official Palo Alto Networks product. This is an independent, community-developed testing tool. Use at your own risk.
 
@@ -10,19 +10,19 @@ This guide covers running UIA-App in Docker for testing Palo Alto Networks User-
 
 ```bash
 # Pull the image
-docker pull captainshane/uia-app:1.0.0
+docker pull captainshane/uia-app:latest
 
 # Run with certificate volume
 docker run -d \
   --name uia-app \
   -p 8000:8000 \
   -v uia-certs:/app/certs \
-  captainshane/uia-app:1.0.0
+  captainshane/uia-app:latest
 ```
 
 Open http://localhost:8000 in your browser.
 
-## Features in v1.0.0
+## Features
 
 - **IP-User Mapping**: Single and bulk (up to 100K entries) with progress tracking
 - **Dynamic Address Groups (DAG)**: Register/unregister IP tags
@@ -70,7 +70,7 @@ Open http://localhost:8000 in your browser.
 version: '3.8'
 services:
   uia-app:
-    image: captainshane/uia-app:1.0.0
+    image: captainshane/uia-app:latest
     container_name: uia-app
     ports:
       - "8000:8000"
