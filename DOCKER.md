@@ -10,14 +10,14 @@ This guide covers running UIA-App in Docker for testing Palo Alto Networks User-
 
 ```bash
 # Pull the image
-docker pull your-repo/uia-app:1.0.0
+docker pull captainshane/uia-app:1.0.0
 
 # Run with certificate volume
 docker run -d \
   --name uia-app \
   -p 8000:8000 \
   -v uia-certs:/app/certs \
-  your-repo/uia-app:1.0.0
+  captainshane/uia-app:1.0.0
 ```
 
 Open http://localhost:8000 in your browser.
@@ -70,7 +70,7 @@ Open http://localhost:8000 in your browser.
 version: '3.8'
 services:
   uia-app:
-    image: your-repo/uia-app:1.0.0
+    image: captainshane/uia-app:1.0.0
     container_name: uia-app
     ports:
       - "8000:8000"

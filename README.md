@@ -30,8 +30,8 @@ A GUI application for testing Palo Alto Networks User-ID Agent functionality, al
 ### Using Docker (Recommended)
 
 ```bash
-docker pull your-repo/uia-app:1.0.0
-docker run -p 8000:8000 -v ./certs:/app/certs your-repo/uia-app:1.0.0
+docker pull captainshane/uia-app:1.0.0
+docker run -p 8000:8000 -v ./certs:/app/certs captainshane/uia-app:1.0.0
 ```
 
 Open http://localhost:8000 in your browser.
