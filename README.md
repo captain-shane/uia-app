@@ -4,6 +4,12 @@
 
 A GUI application for testing Palo Alto Networks User-ID Agent functionality, allowing network engineers to send IP-User mappings and manage Dynamic Address/User Groups.
 
+## Documentation
+
+- [**Docker Guide**](DOCKER.md) - Container deployment instructions
+- [**UIA Agent Setup**](docs/UIA_AGENT_SETUP.md) - Configure the Windows User-ID Agent
+- [**Walkthrough & Demo**](docs/WALKTHROUGH.md) - Feature demonstration with video
+
 ## Features
 
 ### IP-User Mapping
@@ -20,10 +26,11 @@ A GUI application for testing Palo Alto Networks User-ID Agent functionality, al
 - Register/unregister users to tag-based groups
 - Single or bulk user tagging
 
-### Certificate Management
-- **Generate Fresh PKI**: Create Root CA, Server Cert (for UIA Agent), and Client Cert
+### mTLS Certificate Setup
+Certificates are required for secure communication between this app and the UIA Agent:
+- **Generate Certs**: Create certificates for testing environments
 - **Upload Custom Certs**: Use existing enterprise PKI certificates
-- **Download Certs**: Get `rootCA.crt` and `uia-server-bundle.pem` for UIA Agent setup
+- **Auto-configured mTLS**: App uses generated/uploaded certs to connect to UIA Agent
 
 ## Quick Start
 
@@ -63,9 +70,9 @@ Open http://localhost:8000 in your browser.
                        │ HTTP API
 ┌──────────────────────▼──────────────────────────────┐
 │                FastAPI Backend                      │
-│  - Certificate Management                           │
+│  - mTLS Connection to UIA Agent                    │
 │  - Bulk Mapping Engine (rate-limited)              │
-│  - UIA Agent Communication (mTLS)                  │
+│  - Certificate Management                          │
 └──────────────────────┬──────────────────────────────┘
                        │ mTLS (HTTPS)
 ┌──────────────────────▼──────────────────────────────┐
@@ -90,15 +97,9 @@ Bulk operations are intentionally rate-limited with a **2-second pause every 1,0
 | `/update-ip-tags` | POST | DAG register/unregister |
 | `/update-tags` | POST | DUG register/unregister |
 | `/stop-mapping` | POST | Graceful stop of bulk operations |
-| `/generate-pki` | POST | Generate fresh PKI certificates |
+| `/generate-pki` | POST | Generate certificates for mTLS |
 | `/upload-certs` | POST | Upload custom certificates |
 | `/download-cert/{file}` | GET | Download generated certs |
-
-## Documentation
-
-- [**Docker Guide**](DOCKER.md) - Container deployment instructions
-- [**UIA Agent Setup**](docs/UIA_AGENT_SETUP.md) - Configure the Windows User-ID Agent
-- [**Walkthrough & Demo**](docs/WALKTHROUGH.md) - Feature demonstration with video
 
 ## Requirements
 
