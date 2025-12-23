@@ -94,6 +94,12 @@ Bulk operations are intentionally rate-limited with a **2-second pause every 1,0
 | `/upload-certs` | POST | Upload custom certificates |
 | `/download-cert/{file}` | GET | Download generated certs |
 
+## Documentation
+
+- [**Docker Guide**](DOCKER.md) - Container deployment instructions
+- [**UIA Agent Setup**](docs/UIA_AGENT_SETUP.md) - Configure the Windows User-ID Agent
+- [**Walkthrough & Demo**](docs/WALKTHROUGH.md) - Feature demonstration with video
+
 ## Requirements
 
 - Python 3.11+

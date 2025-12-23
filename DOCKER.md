@@ -106,6 +106,12 @@ After generating or uploading certificates:
    - Enter UIA Agent URL (e.g., `192.168.1.100:5006`)
    - Click "Test & Save"
 
+## Related Documentation
+
+- [**UIA Agent Setup Guide**](docs/UIA_AGENT_SETUP.md) - Step-by-step Windows UIA Agent configuration
+- [**Walkthrough & Demo**](docs/WALKTHROUGH.md) - Feature demonstration with video
+- [**Main README**](README.md) - Project overview and API reference
+
 ## Changelog
 
 ### v1.0.0
