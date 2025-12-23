@@ -114,6 +114,11 @@ After generating or uploading certificates:
 
 ## Changelog
 
+### v1.0.1
+- **Fixed:** TLS compatibility for legacy UIA Agents (TLS 1.0/1.1 support)
+- **Fixed:** PKI generation error 500 (attribute naming bug)
+- **Improved:** SSL context with `OP_LEGACY_SERVER_CONNECT` for broader compatibility
+
 ### v1.0.0
 - Initial release
 - IP-User mapping (single + bulk)

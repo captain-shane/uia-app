@@ -137,9 +137,20 @@ def create_ip_tag_message(entries: List[dict], action: str = 'register'):
     return uid_message
 
 def sync_send_payload(xml_str, cert_file, key_file, ca_file, hostname, port):
+    # Create SSL context with broader TLS support for older UIA Agents
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
     context.check_hostname = False
     context.verify_mode = ssl.CERT_REQUIRED
+    
+    # Allow older TLS versions for compatibility with legacy UIA Agents
+    context.minimum_version = ssl.TLSVersion.TLSv1
+    context.maximum_version = ssl.TLSVersion.TLSv1_3
+    
+    # Disable strict security checks for legacy compatibility
+    context.options &= ~ssl.OP_NO_SSLv3  # Clear any default restrictions
+    if hasattr(ssl, 'OP_LEGACY_SERVER_CONNECT'):
+        context.options |= ssl.OP_LEGACY_SERVER_CONNECT
+    
     context.load_verify_locations(cafile=ca_file)
     context.load_cert_chain(certfile=cert_file, keyfile=key_file)
     
@@ -613,7 +624,7 @@ async def generate_pki(request: GeneratePKIRequest):
         f.write(cli_cert.public_bytes(serialization.Encoding.PEM))
     
     logger.info("PKI generation complete")
-    return {"message": "PKI generated successfully", "password": request.pfx_password}
+    return {"message": "PKI generated successfully", "password": request.password}
 
 @app.post("/upload-certs")
 async def upload_certs(

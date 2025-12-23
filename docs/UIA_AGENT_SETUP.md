@@ -66,14 +66,15 @@ The Root CA must be trusted by Windows for mTLS to work.
 5. Check **"Enable Client Certificate Authentication"**
 
 ### Configure Listening Port
+1. Stop the Service
+2. In **Setup** tab, Edit Service, Turn On Enable User-ID XML API on port 5006
+3. This is the port UIA-App will connect to 
 
-1. In **Setup** tab, verify **Listening Port** is set to `5006` (default)
-2. This is the port UIA-App will connect to
+### Save and Restart service
 
-### Save and Restart
-
-1. Click **Commit** or **Apply**
-2. Restart the User-ID Agent service:
+1. Click **Save** and **Commit** or **Apply**
+2. Restart the User-ID Agent service: **Start**
+or if CLI only:
    ```cmd
    net stop "User-ID Agent"
    net start "User-ID Agent"
@@ -109,17 +110,17 @@ netsh advfirewall firewall add rule name="UIA Agent" dir=in action=allow protoco
 
 ### SSL/Certificate Errors
 - Ensure Root CA is imported to **Local Computer** (not Current User)
-- Verify certificate password is correct
+- Verify certificate password is correct (Will error on import if pem package is not encrypted or password is wrong)
 - Check certificate hasn't expired
 
 ### "Client Certificate Required" Error
 - UIA Agent requires client cert authentication
-- Verify UIA-App has valid client cert in `/app/certs`
+- Verify UIA-App has valid client cert in `/app/certs` (If not in gui on a docker)
 
 ### Check UIA Agent Logs
 Logs are typically at:
 ```
-C:\Program Files\Palo Alto Networks\User-ID Agent\Logs\
+C:\Program Files(x86)\Palo Alto Networks\User-ID Agent\Logs\
 ```
 
 ---
