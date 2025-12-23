@@ -6,7 +6,7 @@
 
 ![UIA-App Demo](demo.webp)
 
-*Demo showing IP mapping, DAG/DUG operations, and certificate management*
+*Demo showing IP mapping, DAG/DUG operations, and mTLS certificate setup*
 
 ---
 
@@ -27,10 +27,11 @@
 - Unregister users from groups
 - Bulk operations supported
 
-### 4. Certificate Management
-- **Generate PKI**: Creates Root CA, Server Cert, Client Cert
+### 4. mTLS Certificate Setup
+Certificates for secure App-to-UIA-Agent communication:
+- **Generate Certs**: Create certs for testing environments
 - **Upload Custom**: Use existing enterprise certificates
-- **Download**: Get certs for UIA Agent configuration
+- **Download**: Get server cert bundle for UIA Agent configuration
 
 ---
 
@@ -44,12 +45,12 @@ docker run -p 8000:8000 captainshane/uia-app:latest
 # http://localhost:8000
 ```
 
-## Certificate Setup Flow
+## mTLS Certificate Setup Flow
 
 1. Go to **Settings** page
 2. Either:
-   - **Generate PKI**: Click "Generate PKI", download certs
-   - **Upload Custom**: Upload your enterprise certs
+   - **Generate Certs**: Click "Generate PKI", download server bundle
+   - **Upload Custom**: Upload your enterprise certs for this app to use
 3. On Windows UIA Agent host:
    - Import `rootCA.crt` to Trusted Root store
    - Configure UIA Agent with `uia-server-bundle.pem`

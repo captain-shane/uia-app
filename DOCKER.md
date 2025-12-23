@@ -27,14 +27,14 @@ Open http://localhost:8000 in your browser.
 - **IP-User Mapping**: Single and bulk (up to 100K entries) with progress tracking
 - **Dynamic Address Groups (DAG)**: Register/unregister IP tags
 - **Dynamic User Groups (DUG)**: Register/unregister user tags
-- **Certificate Management**:
-  - Generate fresh PKI (Root CA, Server Cert, Client Cert)
+- **mTLS Certificate Setup**:
+  - Generate certs for testing environments
   - Upload custom enterprise certificates
-  - Download certs for UIA Agent configuration
+  - Secure communication between this app and UIA Agent
 
-## Certificate Setup
+## mTLS Certificate Setup
 
-### Option A: Generate Fresh PKI (Recommended for Testing)
+### Option A: Generate Certs (Recommended for Testing)
 
 1. Open http://localhost:8000/settings
 2. Set a password for the server key
