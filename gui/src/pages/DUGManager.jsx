@@ -3,7 +3,7 @@ import axios from 'axios';
 import { ShieldCheck } from 'lucide-react';
 import LogPanel from '../components/LogPanel';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = '';
 
 export default function DUGManager({ uiaUrl }) {
     const [logs, setLogs] = useState([]);

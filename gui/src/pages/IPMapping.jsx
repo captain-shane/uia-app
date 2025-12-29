@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Network } from 'lucide-react';
 import LogPanel from '../components/LogPanel';
 
-const API_BASE = 'http://localhost:8000';
+// Use relative path for API calls
+const API_BASE = '';
 const STORAGE_KEY = 'uia_ipmapping_form';
 
 export default function IPMapping({ uiaUrl }) {

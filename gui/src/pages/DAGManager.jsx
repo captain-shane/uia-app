@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Tags } from 'lucide-react';
 import LogPanel from '../components/LogPanel';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = '';
 
 export default function DAGManager({ uiaUrl }) {
     const [logs, setLogs] = useState([]);

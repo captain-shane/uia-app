@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Settings, Shield, Upload, Download, CheckCircle, XCircle } from 'lucide-react';
 import LogPanel from '../components/LogPanel';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = '';
 
 export default function SettingsPage({ uiaUrl, onUrlChange }) {
     const [logs, setLogs] = useState([]);

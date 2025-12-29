@@ -7,7 +7,9 @@ import DAGManager from './pages/DAGManager';
 import DUGManager from './pages/DUGManager';
 import SettingsPage from './pages/SettingsPage';
 
-const API_BASE = 'http://localhost:8000';
+// Use relative path for API calls to support Docker port mapping
+// Vite proxy will handle this in development
+const API_BASE = '';
 
 function App() {
   const [status, setStatus] = useState('offline');
